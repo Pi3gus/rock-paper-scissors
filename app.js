@@ -1,7 +1,7 @@
 let playerPoints = 0;
 let computerPoints = 0;
 const game = () =>{
-    const playerSelection = 'Rock';    
+    const playerSelection = window.prompt('rock, paper or scissors?');    
     const getComputerChoice = ()=>{
         const choices = ['rock','paper','scissors']
         const random = Math.floor(Math.random() *3);
@@ -43,5 +43,5 @@ if(playerPoints > computerPoints){
 }else if(playerPoints< computerPoints){
     console.log(`You lose by ${computerPoints} points`)
 }else{
-    console.log(`Draw You: ${playerPoints} Computer${computerPoints}`)
+    console.log(`Draw You: ${playerPoints} Computer: ${computerPoints}`)
 }
