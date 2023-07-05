@@ -1,0 +1,28 @@
+body{
+    background-color: #262626;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+}
+
+button{
+    background: none;
+    border: none;
+    font-size: 4em;
+    margin: 1em;
+}
+button:hover{
+    cursor: pointer;
+}
+.refresh{
+    color: white;
+    font-size: 4em;
+    transition: 300ms;
+    display: none;
+}
+.refresh:hover{
+    font-size: 4.5em;
+    transition: 300ms;
+    cursor: pointer;
+}
