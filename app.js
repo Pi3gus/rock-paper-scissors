@@ -1,6 +1,14 @@
 let playerPoints = 0;
 let computerPoints = 0;
 const buttonSelection = document.querySelectorAll('[data-selection]')
+const result = document.querySelector('.result');
+const userScore = document.querySelector('.user');
+const pcScore = document.querySelector('.pc');
+
+function toggleButton() {
+    document.getElementById("button").className = 'show'; 
+}
+
 
     buttonSelection.forEach(buttonSelection => {
         buttonSelection.addEventListener('click', e =>{
@@ -24,12 +32,18 @@ const buttonSelection = document.querySelectorAll('[data-selection]')
         const random = Math.floor(Math.random() *3);
         const choice = choices[random];
         return choice;
+        
+        
+    }
+
+    function toggleButton() {
+        document.getElementById("button").className = 'show';
+        document.getElementById("button").addEventListener('click', e =>{
+            window.location.reload();
+        });
     }
 
     const singleRound = (playerSelection, computerSelection) => {
-        
-        
-        
         playerSelection = playerSelection.toLowerCase();
         if ((playerSelection === 'scissors' && computerSelection === 'paper') ||
             (playerSelection === 'paper' && computerSelection === 'rock') ||
@@ -44,10 +58,10 @@ const buttonSelection = document.querySelectorAll('[data-selection]')
             computerPoints +=1;
             console.log('You lose')
             console.log(`Yours points: ${playerPoints} computer points: ${computerPoints}`)
-            
         }
-        if(playerPoints === 5 || computerPoints === 5)
         
+        if(playerPoints === 5 || computerPoints === 5){
+            toggleButton();
             if(playerPoints > computerPoints){
                 console.log(`You win by ${playerPoints}`)
                 return;
@@ -58,6 +72,7 @@ const buttonSelection = document.querySelectorAll('[data-selection]')
                 console.log(`Draw You: ${playerPoints} Computer: ${computerPoints}`)
                 return;
             }
+        }
     }
 
 
