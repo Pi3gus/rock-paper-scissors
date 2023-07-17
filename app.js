@@ -8,14 +8,11 @@ const pcScore = document.querySelector('.pc');
 function toggleButton() {
     document.getElementById("button").className = 'show'; 
 }
-
-
     buttonSelection.forEach(buttonSelection => {
         buttonSelection.addEventListener('click', e =>{
             if(playerPoints < 5 && computerPoints < 5){
                 const selectionName = buttonSelection.dataset.selection
                 makeSelection(selectionName);}
-
         })
     })
 
@@ -23,8 +20,6 @@ function toggleButton() {
         const playerSelection = selection
         const computerSelection = getComputerChoice()
         singleRound(playerSelection,computerSelection)
-        // console.log(playerSelection, computerSelection)
-
     }
     
     const getComputerChoice = ()=>{
@@ -49,27 +44,23 @@ function toggleButton() {
             (playerSelection === 'paper' && computerSelection === 'rock') ||
             (playerSelection === 'rock' && computerSelection === 'scissors')){
             playerPoints +=1;
-            console.log('You win!')
-            console.log(`Yours points: ${playerPoints} computer points: ${computerPoints}`)
+            userScore.textContent = playerPoints;
+            result.textContent = 'You win!';
         }else if (playerSelection === computerSelection){
-            console.log('Draw')
-            console.log(`Yours points: ${playerPoints} computer points: ${computerPoints}`)
+            result.textContent = 'Tie!';
         }else{
             computerPoints +=1;
-            console.log('You lose')
-            console.log(`Yours points: ${playerPoints} computer points: ${computerPoints}`)
+            pcScore.textContent = computerPoints;
+            result.textContent = 'You lose!';
         }
         
         if(playerPoints === 5 || computerPoints === 5){
             toggleButton();
             if(playerPoints > computerPoints){
-                console.log(`You win by ${playerPoints}`)
+                result.textContent = `You win by ${playerPoints}`;
                 return;
             }else if(playerPoints< computerPoints){
-                console.log(`You lose by ${computerPoints} points`)
-                return;
-            }else{
-                console.log(`Draw You: ${playerPoints} Computer: ${computerPoints}`)
+                result.textContent = `Computer win by ${computerPoints} points`;
                 return;
             }
         }
